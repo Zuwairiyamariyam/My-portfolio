@@ -113,6 +113,14 @@ export default function App() {
     }
   };
 
+  const handleEmailClick = (e) => {
+    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+    if (!isMobile) {
+      e.preventDefault();
+      window.open('https://mail.google.com/mail/?view=cm&fs=1&to=zuwairiyamariyam2305@gmail.com', '_blank');
+    }
+  };`1`
+
   const phrases = [
     "Java Backend Developer",
     "REST API Developer",
@@ -178,18 +186,40 @@ export default function App() {
   ];
     const experienceData = [
     {
+      role: "React Developer Intern",
+      company: "AIstratX Technologies",
+      location: "Remote",
+      period: "Aug 2026 – Oct 2026",
+      type: "Internship"
+    },
+    {
       role: "Java Developer Intern",
-      company: "Lesuccess",
-      location: "Coimbatore, Tamil Nadu, India",
+      company: "Le Success",
+      location: "Coimbatore, Tamil Nadu",
       period: "Jul 2025 – Aug 2025",
       type: "Internship"
     },
     {
       role: "Frontend Developer Intern",
-      company: "Unityr Tech Labs",
+      company: "Unity Tech Labs",
       location: "On-Campus Incubator",
-      period: "Jul 2024 – Oct 2024",
+      period: "Aug 2024 – Dec 2024",
       type: "Internship"
+    }
+  ];
+
+  const certificationData = [
+    {
+      title: "Master Program in Full Stack: Java",
+      organization: "Fita Academy",
+      period: "Feb 2026 – Jul 2026",
+      type: "Training"
+    },
+    {
+      title: "Advanced Java Training",
+      organization: "Anudip Foundation",
+      period: "Aug 2026 – Present",
+      type: "Certification"
     }
   ];
 
@@ -277,7 +307,7 @@ export default function App() {
             <a href="#about" className="hover:text-purple-400 transition">About</a>
             <a href="#projects" className="hover:text-purple-400 transition">Projects</a>
             <a href="#skills" className="hover:text-purple-400 transition">Skills</a>
-            <a href="#experience" className="hover:text-purple-400 transition">Experience</a>
+            <a href="#experience" className="hover:text-purple-400 transition">Journey</a>
             <a href="#contact" className="hover:text-purple-400 transition">Let's Talk</a>
           </div>
 
@@ -305,7 +335,7 @@ export default function App() {
     <a href="#about" onClick={() => setMenuOpen(false)} className="block text-slate-300 hover:text-purple-400 py-1.5 border-b border-purple-950/40">✦ About Me</a>
     <a href="#projects" onClick={() => setMenuOpen(false)} className="block text-slate-300 hover:text-purple-400 py-1.5 border-b border-purple-950/40">✦ Projects</a>
     <a href="#skills" onClick={() => setMenuOpen(false)} className="block text-slate-300 hover:text-purple-400 py-1.5 border-b border-purple-950/40">✦ Skills</a>
-    <a href="#experience" onClick={() => setMenuOpen(false)} className="block text-slate-300 hover:text-purple-400 py-1.5 border-b border-purple-950/40">✦ Experience</a>
+    <a href="#experience" onClick={() => setMenuOpen(false)} className="block text-slate-300 hover:text-purple-400 py-1.5 border-b border-purple-950/40">✦ Journey</a>
     <a href="#contact" onClick={() => setMenuOpen(false)} className="block text-slate-300 hover:text-purple-400 py-1.5">✦ Let's Talk</a>
   </div>
 )}
@@ -317,7 +347,7 @@ export default function App() {
           <section className="grid grid-cols-1 lg:grid-cols-12 gap-1 lg:gap-14 items-center">
             
             {/* Left Column: Software Developer */}
-            <div className="lg:col-span-7 space-y-4 sm:space-y-6 text-left lg:pl-4">
+<div className="relative z-30 lg:col-span-7 space-y-4 sm:space-y-6 text-left lg:pl-4">
               
               {/* AVAILABLE FOR FREELANCE BADGE */}
               <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-purple-950/50 border border-purple-800/50 backdrop-blur-md shadow-sm mb-4 sm:mb-1">
@@ -348,7 +378,7 @@ export default function App() {
                 Passionate about turning ideas into clean, functional, and meaningful digital solutions through code, creativity and problem-solving. Learning, creating, and growing with every project.
               </p>
 
-              {/* Action Buttons (Exact Same Size on Laptop, Full Width on Mobile) */}
+              {/* Action Buttons */}
               <div className="flex flex-wrap items-center gap-3 sm:gap-4 pt-1">
                 <a 
                   href="#projects" 
@@ -357,7 +387,8 @@ export default function App() {
                   View My Projects
                 </a>
                 <a 
-                  href="#contact" 
+                  href="/Resume.pdf" 
+                  download="Zuwairiya_Mariyam_Resume.pdf"
                   className="w-full sm:w-[205px] h-[48px] sm:h-[50px] flex items-center justify-center gap-2 rounded-xl bg-slate-900/90 hover:bg-slate-800 text-slate-200 border border-purple-800/70 hover:border-purple-400 font-semibold text-sm sm:text-base transition duration-200"
                 >
                   Download Resume ↓
@@ -371,10 +402,11 @@ export default function App() {
                 </span>
                 
                 <div className="flex items-center gap-2.5">
+                  {/* LinkedIn: Mobile-la clean app transition, laptop-la new tab */}
                   <a
                     href="https://www.linkedin.com/in/zuwairiya-mariyam-r-250b172a1/"
                     target="_blank"
-                    rel="noreferrer"
+                    rel="noopener noreferrer"
                     title="LinkedIn"
                     className="p-2 rounded-lg bg-purple-950/40 hover:bg-purple-900/60 border border-purple-800/50 hover:border-purple-400 text-purple-300 hover:text-white transition duration-200 shadow-sm"
                   >
@@ -383,20 +415,23 @@ export default function App() {
                     </svg>
                   </a>
 
+                  {/* GitHub */}
                   <a
                     href="https://github.com/Zuwairiyamariyam"
                     target="_blank"
-                    rel="noreferrer"
+                    rel="noopener noreferrer"
                     title="GitHub"
                     className="p-2 rounded-lg bg-purple-950/40 hover:bg-purple-900/60 border border-purple-800/50 hover:border-purple-400 text-purple-300 hover:text-white transition duration-200 shadow-sm"
                   >
                     <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
-                      <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+                      <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.304 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
                     </svg>
                   </a>
 
+                  {/* Mail: Mobile-la direct Gmail app compose, Laptop-la direct webmail compose */}
                   <a
                     href="mailto:zuwairiyamariyam2305@gmail.com"
+                    onClick={handleEmailClick}
                     title="Send Email"
                     className="p-2 rounded-lg bg-purple-950/40 hover:bg-purple-900/60 border border-purple-800/50 hover:border-purple-400 text-purple-300 hover:text-white transition duration-200 shadow-sm"
                   >
@@ -1293,7 +1328,7 @@ export default function App() {
         {/* ================= EXPERIENCE & EDUCATION SECTION ================= */}
         <section id="experience" className="-mt-13 sm:-mt-17 scroll-mt-6 sm:scroll-mt-8 space-y-8">
           
-          {/* Section Header (100% Left Aligned) */}
+          {/* Section Header */}
           <div className="space-y-3.5 sm:space-y-4 text-left">
             <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-purple-950/50 border border-purple-700/50 text-xs sm:text-sm font-mono font-medium text-purple-200 tracking-wide backdrop-blur-md shadow-sm">
               <span className="text-purple-400">✦</span> Career &amp; Academic Journey
@@ -1303,14 +1338,14 @@ export default function App() {
             </h2>
           </div>
 
-          {/* 2-Column Responsive Layout */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10 pt-1">
+          {/* 2-Column Responsive Layout (Laptop Equal Height, Mobile Clean Stacking) */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-10 pt-1 items-stretch">
             
-            {/* ================= LEFT COLUMN: EXPERIENCE ================= */}
-            <div className="space-y-4">
+            {/* ================= LEFT COLUMN: INTERNSHIPS ================= */}
+            <div className="flex flex-col justify-between h-full space-y-4 sm:space-y-3.5">
               
               {/* Category Sub-Header */}
-              <div className="flex items-center gap-2.5 pb-2 border-b border-purple-900/30">
+              <div className="flex items-center gap-2.5 pb-2.5 border-b border-purple-900/30">
                 <div className="w-8 h-8 rounded-xl bg-purple-950/70 border border-purple-800/60 text-purple-300 flex items-center justify-center">
                   <svg className="w-4 h-4 stroke-current fill-none stroke-2" viewBox="0 0 24 24">
                     <rect width="20" height="14" x="2" y="7" rx="2" ry="2"/>
@@ -1322,31 +1357,27 @@ export default function App() {
                 </h3>
               </div>
 
-              {/* Experience Boxes List (Removed Internship Box Tag) */}
-              <div className="space-y-3.5 pt-1">
+              {/* 3 Internships List */}
+              <div className="flex flex-col justify-between flex-1 gap-4 sm:gap-3.5">
                 {experienceData.map((exp, idx) => (
                   <div
                     key={idx}
-                    className="p-4 sm:p-5 rounded-2xl bg-[#0a0e1c]/75 border border-purple-900/40 hover:border-purple-600/50 backdrop-blur-md transition-colors duration-200 flex flex-col justify-between gap-3"
+                    className="p-4 sm:p-4.5 rounded-2xl bg-[#0a0e1c]/75 border border-purple-900/40 hover:border-purple-600/50 backdrop-blur-md transition-colors duration-200 flex flex-col justify-between gap-3 lg:flex-1 shadow-sm"
                   >
-                    {/* Top Row: Role Title & Right-Corner Timeline Badge */}
                     <div className="flex items-start justify-between gap-2 flex-wrap sm:flex-nowrap">
                       <div>
-                        <h4 className="text-base sm:text-[17px] font-bold text-white tracking-tight">
+                        <h4 className="text-base sm:text-[16.5px] font-bold text-white tracking-tight">
                           {exp.role}
                         </h4>
                         <p className="text-xs sm:text-sm font-medium text-purple-400 mt-0.5">
                           {exp.company}
                         </p>
                       </div>
-
-                      {/* Right Timeline Period Badge */}
                       <span className="shrink-0 text-[11px] font-mono text-purple-200 bg-purple-950/70 border border-purple-800/50 px-2.5 py-1 rounded-lg">
                         {exp.period}
                       </span>
                     </div>
 
-                    {/* Bottom Row: Pure Clean Location Only */}
                     <div className="pt-2 border-t border-purple-900/30 flex items-center text-xs text-slate-400">
                       <span className="flex items-center gap-1.5 truncate">
                         <svg className="w-3.5 h-3.5 text-purple-400/80 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -1362,68 +1393,96 @@ export default function App() {
 
             </div>
 
-            {/* ================= RIGHT COLUMN: EDUCATION ================= */}
-<div className="space-y-4">
-  
-  {/* Category Sub-Header */}
-  <div className="flex items-center gap-2.5 pb-2 border-b border-purple-900/30">
-    <div className="w-8 h-8 rounded-xl bg-purple-950/70 border border-purple-800/60 text-indigo-300 flex items-center justify-center">
-      <svg className="w-4 h-4 stroke-current fill-none stroke-2" viewBox="0 0 24 24">
-        <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
-        <path d="M6 12v5c3 3 9 3 12 0v-5"/>
-      </svg>
-    </div>
-    <h3 className="text-lg sm:text-xl font-bold text-white tracking-wide">
-      Academic Background
-    </h3>
-  </div>
+            {/* ================= RIGHT COLUMN: EDUCATION & TRAINING ================= */}
+            <div className="flex flex-col justify-between h-full space-y-4 sm:space-y-3.5">
+              
+              {/* Category Sub-Header */}
+              <div className="flex items-center gap-2.5 pb-2.5 border-b border-purple-900/30">
+                <div className="w-8 h-8 rounded-xl bg-purple-950/70 border border-purple-800/60 text-indigo-300 flex items-center justify-center">
+                  <svg className="w-4 h-4 stroke-current fill-none stroke-2" viewBox="0 0 24 24">
+                    <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
+                    <path d="M6 12v5c3 3 9 3 12 0v-5"/>
+                  </svg>
+                </div>
+                <h3 className="text-lg sm:text-xl font-bold text-white tracking-wide">
+                  Academic Background
+                </h3>
+              </div>
 
-  {/* Education Boxes List */}
-  <div className="space-y-3.5 pt-1">
-    {educationData.map((edu, idx) => (
-      <div
-        key={idx}
-        className="p-4 sm:p-5 rounded-2xl bg-[#0a0e1c]/75 border border-purple-900/40 hover:border-indigo-600/50 backdrop-blur-md transition-colors duration-200 flex flex-col justify-between gap-3"
-      >
-        {/* Top Row: Degree Title & Right-Corner Timeline Badge */}
-        <div className="flex items-start justify-between gap-2 flex-wrap sm:flex-nowrap">
-          <div>
-            <h4 className="text-base sm:text-[17px] font-bold text-white tracking-tight">
-              {edu.degree}
-            </h4>
-            <p className="text-xs sm:text-sm font-medium text-indigo-400 mt-0.5">
-              {edu.institution}
-            </p>
-          </div>
+              {/* Education Boxes & Certifications */}
+              <div className="flex flex-col justify-between flex-1 gap-4 sm:gap-3.5">
+                
+                {/* 2 Education Cards */}
+                {educationData.map((edu, idx) => (
+                  <div
+                    key={idx}
+                    className="p-4 sm:p-4.5 rounded-2xl bg-[#0a0e1c]/75 border border-purple-900/40 hover:border-indigo-600/50 backdrop-blur-md transition-colors duration-200 flex flex-col justify-between gap-3 lg:flex-1 shadow-sm"
+                  >
+                    <div className="flex items-start justify-between gap-2 flex-wrap sm:flex-nowrap">
+                      <div>
+                        <h4 className="text-base sm:text-[16.5px] font-bold text-white tracking-tight">
+                          {edu.degree}
+                        </h4>
+                        <p className="text-xs sm:text-sm font-medium text-indigo-400 mt-0.5">
+                          {edu.institution}
+                        </p>
+                      </div>
+                      <span className="shrink-0 text-[11px] font-mono text-indigo-200 bg-indigo-950/70 border border-indigo-800/50 px-2.5 py-1 rounded-lg">
+                        {edu.period}
+                      </span>
+                    </div>
 
-          {/* Right Timeline Period Badge */}
-          <span className="shrink-0 text-[11px] font-mono text-indigo-200 bg-indigo-950/70 border border-indigo-800/50 px-2.5 py-1 rounded-lg">
-            {edu.period}
-          </span>
-        </div>
+                    <div className="pt-2 border-t border-purple-900/30 flex items-center justify-between text-xs text-slate-400">
+                      <span className="flex items-center gap-1.5 truncate">
+                        <svg className="w-3.5 h-3.5 text-indigo-400/80 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                          <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/>
+                          <circle cx="12" cy="10" r="3"/>
+                        </svg>
+                        {edu.location}
+                      </span>
+                      <span className="text-[11px] font-mono font-semibold text-emerald-300 bg-emerald-950/60 border border-emerald-700/50 px-2.5 py-0.5 rounded-full">
+                        {edu.scoreBadge}
+                      </span>
+                    </div>
+                  </div>
+                ))}
 
-        {/* Bottom Row: Location & Score Pill (Laptop-la hide aagum) */}
-        <div className="pt-2 border-t border-purple-900/30 flex items-center justify-between text-xs text-slate-400">
-          <span className="flex items-center gap-1.5 truncate">
-            <svg className="w-3.5 h-3.5 text-indigo-400/80 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-              <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/>
-              <circle cx="12" cy="10" r="3"/>
-            </svg>
-            {edu.location}
-          </span>
+                {/* Part 3: Certifications Section (Spacious on Mobile, Symmetrical on Laptop) */}
+                <div className="rounded-2xl p-4 sm:p-3.5 bg-[#0a0e1c]/75 border border-purple-900/40 backdrop-blur-md flex flex-col justify-between gap-3 sm:gap-2.5 lg:flex-1 shadow-sm mt-1 sm:mt-0">
+                  
+                  {/* Inline Small Header */}
+                  <div className="flex items-center gap-2 text-purple-300 border-b border-purple-900/30 pb-2 sm:pb-1.5">
+                    <span className="text-xs text-purple-400">✦</span>
+                    <h4 className="text-xs sm:text-sm font-bold font-mono uppercase tracking-wider text-white">
+                      Certifications &amp; Training
+                    </h4>
+                  </div>
 
-          {/* `lg:hidden` potadhum: Phone-la mattum display aagum, laptop-la hide aaidum */}
-          <span className="lg:hidden text-[11px] font-mono font-semibold text-emerald-300 bg-emerald-950/60 border border-emerald-700/50 px-2.5 py-0.5 rounded-full">
-            {edu.scoreBadge}
-          </span>
-        </div>
-      </div>
-    ))}
-  </div>
+                  {/* 2 Cert Cards */}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-2.5">
+                    {certificationData.map((cert, cIdx) => (
+                      <div
+                        key={cIdx}
+                        className="p-3 sm:p-3 rounded-xl bg-purple-950/30 border border-purple-900/50 hover:border-purple-600/50 flex flex-col justify-between gap-2.5"
+                      >
+                        <h5 className="text-xs sm:text-xs font-bold text-white leading-snug line-clamp-1" title={cert.title}>
+                          {cert.title}
+                        </h5>
+                        <div className="flex items-center justify-between text-[10.5px] sm:text-[10px] font-mono text-slate-400 border-t border-purple-900/40 pt-1.5">
+                          <span className="text-purple-300 truncate mr-1">{cert.organization}</span>
+                          <span className="shrink-0">{cert.period}</span>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
 
-</div>
+                </div>
+
+              </div>
 
             </div>
+
+          </div>
 
         </section>
 
