@@ -387,12 +387,12 @@ export default function App() {
                   View My Projects
                 </a>
                 <a 
-                  href="/Resume.pdf" 
-                  download="Zuwairiya_Mariyam_Resume.pdf"
-                  className="w-full sm:w-[205px] h-[48px] sm:h-[50px] flex items-center justify-center gap-2 rounded-xl bg-slate-900/90 hover:bg-slate-800 text-slate-200 border border-purple-800/70 hover:border-purple-400 font-semibold text-sm sm:text-base transition duration-200"
-                >
-                  Download Resume ↓
-                </a>
+  href="/Zuwairiya_Mariyam_Resume.pdf" 
+  download="Zuwairiya_Mariyam_Resume.pdf"
+  className="w-full sm:w-[205px] h-[48px] sm:h-[50px] flex items-center justify-center gap-2 rounded-xl bg-slate-900/90 hover:bg-slate-800 text-slate-200 border border-purple-800/70 hover:border-purple-400 font-semibold text-sm sm:text-base transition duration-200"
+>
+  Download Resume ↓
+</a>
               </div>
 
               {/* Let's Connect + Social Icons */}
