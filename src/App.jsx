@@ -446,7 +446,7 @@ export default function App() {
             </div>
 
             {/* Right Column: Avatar with Responsive Scaled Orbit (Tight mobile fit, zero extra spacing) */}
-            <div className="lg:col-span-5 flex justify-center lg:justify-end lg:pr-12 -my-14 sm:-my-6 lg:my-0 py-0 overflow-visible">
+            <div className="lg:col-span-5 flex justify-center lg:justify-end lg:pr-12 -my-18 sm:-my-6 lg:my-0 py-0 overflow-visible">
               <div className="orbit-container float-gentle transform scale-[0.65] sm:scale-85 lg:scale-100 origin-center lg:-translate-x-4">
                 <div className="absolute inset-0 rounded-full bg-purple-600/25 blur-3xl pointer-events-none"></div>
                 
