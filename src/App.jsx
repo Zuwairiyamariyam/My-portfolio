@@ -256,12 +256,13 @@ export default function App() {
     {
       title: "Hostel Complaint Portal",
       type: "Full Stack",
-      primaryTech: "Hibernate",
+      primaryTech: "Spring Boot",
       desc: "Centralized hostel grievance system featuring room ticket resolution and authority workflows.",
       techStack: ["Java", "Spring Boot", "React.js", "Hibernate", "MySQL"],
-      demoLink: "#",
-      githubLink: "https://github.com/",
-      status: "In Progress"
+      demoLink: "https://hostelportal-frontend.vercel.app/",
+      githubLink: "https://github.com/Zuwairiyamariyam/hostelportal-frontend",
+      status: "Live Demo",
+      image: "/hostel-portal.jpeg"
     },
     {
       title: "Dreamy Dough",
@@ -272,7 +273,7 @@ export default function App() {
       demoLink: "https://dreamy-dough.vercel.app/",
       githubLink: "https://github.com/Zuwairiyamariyam/Dreamy-dough.git",
       status: "Live Demo",
-      image: "/dreamy-dough.png" // 
+      image: "/dreamy-dough.png" 
     },
     {
       title: "Classic Arcade Engine",
